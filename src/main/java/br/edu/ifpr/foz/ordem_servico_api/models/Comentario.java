@@ -2,7 +2,8 @@ package br.edu.ifpr.foz.ordem_servico_api.models;
 
 import java.time.LocalDate;
 
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,5 +24,6 @@ public class Comentario {
     private LocalDate dataEnvio;
 
     @ManyToOne
+    @JsonIgnoreProperties({"comentarios", "cliente"})
     private OrdemServico ordemServico;
 }

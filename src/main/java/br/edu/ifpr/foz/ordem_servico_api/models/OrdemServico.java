@@ -3,6 +3,8 @@ package br.edu.ifpr.foz.ordem_servico_api.models;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -37,6 +39,7 @@ public class OrdemServico {
     private Cliente cliente;
 
     @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("ordemServico")
     private List<Comentario> comentarios;
 
 }
